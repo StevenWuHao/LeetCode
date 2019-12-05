@@ -7,7 +7,6 @@ class Solution {
      * @return Integer
      */
     function romanToInt($s) {
-
         // 以罗马数字为键，阿拉伯数字为值
         $romanArr = [
             'I' => 1,
