@@ -36,6 +36,7 @@ class Solution {
                 if ($strs[0][$i] == $strs[$j][$i]) {
                     $is_common = true;
                 } else {
+                    $is_finish = true;
                     $is_common = false;
                     break;
                 }
@@ -53,5 +54,5 @@ class Solution {
 }
 
 $solution = new Solution();
-$strs = ["aca","cba"];
+$strs = ["flower","flow","flight"];
 var_dump($solution->longestCommonPrefix($strs));die;
