@@ -18,7 +18,7 @@ import "fmt"
 //著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
 
 func main() {
-	s := "a a abn "
+	s := "a a abn sdfsdfsfddsf sdfsdf sadfsdfs fdsfasdfasfdafsafdafdfds dfsa asd fasf asf sa fsdf sdfsadf sdf sdf as fas fs fasf "
 	//s := "Hello World"
 	fmt.Println(lengthOfLastWord(s))
 }
