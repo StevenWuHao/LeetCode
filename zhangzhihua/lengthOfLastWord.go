@@ -24,37 +24,41 @@ func main() {
 }
 
 func lengthOfLastWord(s string) int {
+
 	sLen := len(s)
 
 	if sLen == 0 {
 		return 0
 	}
 
-	nullLastIndex := -1 //空字符串最后出现所在的位置
-	AToZLastIndex := -1 //A-Z最后出现的位置,-1代表没有
-	cnt := 0
-	AToZLastMaxLen := 0
+	//空字符串最后出现所在的位置,如果！=-1说明整个字符串没有空字符，可以直接返回字符串的长度
+	nullLastIndex := -1
+
+	wordsStartIndex := -1 //最后单词的位置
+	wordsMaxLen := 0      //最后单词的长度
+	isNewWords := true    //是否新单词开始
+
 	for k, v := range s {
+
 		if v == 32 {
 			nullLastIndex = k
-			cnt = 0
+			isNewWords = true //空字符出现，下一个一定是新单词
 			continue
 		}
+		//到这这里说明是非空格的字符
 
-		//非空
-		if cnt == 0 {
-			AToZLastIndex = k
-			AToZLastMaxLen = 0
+		//新单词
+		if isNewWords {
+			wordsStartIndex = k //记录位置起始位置
+			wordsMaxLen = 0     //重置 最后单词的长度
 		}
 
-		cnt++
-		if cnt > AToZLastMaxLen {
-			AToZLastMaxLen = cnt
-		}
+		isNewWords = false
+		wordsMaxLen++
 	}
 
 	//全是空，没有单个字符直接返回0
-	if AToZLastIndex == -1 {
+	if wordsStartIndex == -1 {
 		return 0
 	}
 
@@ -62,6 +66,5 @@ func lengthOfLastWord(s string) int {
 	if nullLastIndex == -1 {
 		return sLen
 	}
-
-	return len(s[AToZLastIndex : AToZLastIndex+AToZLastMaxLen])
+	return len(s[wordsStartIndex : wordsStartIndex+wordsMaxLen])
 }
