@@ -58,7 +58,6 @@ func strStr(haystack string, needle string) int {
 		if k > haystackLen {
 			return -1
 		}
-		fmt.Println(haystack[i:k])
 		if haystack[i:k] == needle {
 			return i
 		}
