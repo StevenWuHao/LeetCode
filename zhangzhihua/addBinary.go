@@ -22,11 +22,11 @@ import (
 //链接：https://leetcode-cn.com/problems/add-binary
 //著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
 func main() {
-	//a := "1111"
-	//b := "1111"
+	a := "1111"
+	b := "1111"
 
-	a := "1010"
-	b := "1011"
+	//a := "1010"
+	//b := "1011"
 
 	fmt.Println(addBinary(a, b))
 }
