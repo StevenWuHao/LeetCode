@@ -30,13 +30,13 @@ func main() {
 
 func reverseString(s []byte) {
 
-	rp := 0
-	lp := len(s) - 1
+	lp := 0
+	rp := len(s) - 1
 
-	for rp < lp {
+	for lp < rp {
 		s[rp], s[lp] = s[lp], s[rp]
-		rp++
-		lp--
+		lp++
+		rp--
 	}
 	fmt.Printf("%s", s)
 }
