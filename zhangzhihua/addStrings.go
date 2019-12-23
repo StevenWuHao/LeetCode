@@ -20,10 +20,22 @@ import (
 
 func main() {
 
-	num1 := "9"
-	num2 := "99"
+	num1 := "0"
+	num2 := "0"
+
+	//性能不是忒别好
+
+	//执行用时 :
+	//8 ms
+	//, 在所有 golang 提交中击败了
+	//57.92%
+	//的用户
+	//内存消耗 :
+	//7.3 MB
+	//, 在所有 golang 提交中击败了
+	//18.42%
+	//的用户
 	fmt.Println(addStrings(num1, num2))
-	fmt.Println(addStrings2(num1, num2))
 }
 
 func addStrings(num1 string, num2 string) string {
@@ -59,47 +71,6 @@ func addStrings(num1 string, num2 string) string {
 
 		tmp1 = 0
 		tmp2 = 0
-		i--
-		j--
-	}
-
-	if carry == 1 {
-		str = "1" + str
-	}
-
-	return str
-}
-
-func addStrings2(num1 string, num2 string) string {
-
-	n1Len := len(num1)
-	n2Len := len(num2)
-
-	i := n1Len - 1
-	j := n2Len - 1
-
-	str := ""
-	carry := 0
-	for i >= 0 || j >= 0 {
-
-		tmp1 := 0
-		tmp2 := 0
-		if i >= 0 {
-			tmp1 = int(num1[i]) - 48
-		}
-
-		if j >= 0 {
-			tmp2 = int(num2[j]) - 48
-		}
-
-		t := tmp1 + tmp2 + carry
-		if t >= 10 {
-			carry = 1
-		} else {
-			carry = 0
-		}
-
-		str = strconv.Itoa(t%10) + str
 		i--
 		j--
 	}
