@@ -35,7 +35,6 @@ class Solution {
         return $count;
     }
 }
-
 $solution = new Solution();
 $s = ", , , ,        a, eaefa";
 var_dump($solution->countSegments($s));
