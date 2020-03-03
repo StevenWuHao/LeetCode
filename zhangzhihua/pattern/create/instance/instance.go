@@ -21,6 +21,7 @@ type DB struct {
 
 var instance *DB
 
+
 //普通单例
 func NewDBUnsafe(nm string) *DB {
 
@@ -35,7 +36,6 @@ func NewDBUnsafe(nm string) *DB {
 线程安全 单例
 */
 var DBLock sync.Mutex
-
 func NewDBSafe(nm string) *DB {
 	if instance == nil {
 
@@ -53,7 +53,6 @@ func NewDBSafe(nm string) *DB {
 sync.Once 是go内置的一个单例方法
 */
 var once sync.Once
-
 func GetInstanceSafe(nm string) *DB {
 	once.Do(func() {
 		instance = &DB{nm}
