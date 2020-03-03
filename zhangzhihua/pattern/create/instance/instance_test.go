@@ -48,9 +48,6 @@ func TestIdx(t *testing.T) {
 测试了线程安全问题
 */
 func TestUnsafe(t *testing.T) {
-	//单核很难看出非线程安全，所以增加了CPU的数量
-	runtime.GOMAXPROCS(4)
-
 	time := 10
 	for time > 0 {
 		go NewDBUnsafe(strconv.Itoa(time))
