@@ -1,6 +1,5 @@
 package tree
 
-
 //执行用时 :
 //0 ms
 //, 在所有 Go 提交中击败了
@@ -36,13 +35,13 @@ package tree
 func levelOrderBottom(root *TreeNode) [][]int {
 
 	var ret [][]int
-	var queue [] TreeNode
+	var queue [] *TreeNode
 
 	if root == nil {
 		return ret
 	}
 
-	queue = append(queue, *root)
+	queue = append(queue, root)
 
 	for len(queue) > 0 {
 		var tmp []int
@@ -51,10 +50,10 @@ func levelOrderBottom(root *TreeNode) [][]int {
 			tmp = append(tmp, queue[i].Val)
 
 			if queue[i].Left != nil {
-				queue = append(queue, *queue[i].Left)
+				queue = append(queue, queue[i].Left)
 			}
 			if queue[i].Right != nil {
-				queue = append(queue, *queue[i].Right)
+				queue = append(queue, queue[i].Right)
 			}
 		}
 		ret = append(ret, tmp)
