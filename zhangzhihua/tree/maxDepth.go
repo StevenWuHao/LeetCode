@@ -48,12 +48,14 @@ func maxDepth(root *TreeNode) int {
 	for len(queue) > 0 {
 		qLen := len(queue)
 		for i := 0; i < qLen; i++ {
-			if queue[i].Left != nil {
-				queue = append(queue, queue[i].Left)
+			left := queue[i].Left
+			right := queue[i].Right
+			if left != nil {
+				queue = append(queue, left)
 			}
 
-			if queue[i].Right != nil {
-				queue = append(queue, queue[i].Right)
+			if right != nil {
+				queue = append(queue, right)
 			}
 		}
 		queue = queue[qLen:]
