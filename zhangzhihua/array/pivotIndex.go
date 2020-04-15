@@ -46,8 +46,12 @@ func pivotIndex(nums []int) int {
 		return -1
 	}
 
+	if numsLen == 1 {
+		return 0
+	}
+
 	//因为不包含中心索引，初始索引一定是从第2个开始
-	for i := 0; i < numsLen; i++ {
+	for i := 0; i < numsLen-1; i++ {
 		//左边总和
 		l := sum(nums[:i])
 		round := i + 1
