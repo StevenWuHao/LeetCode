@@ -76,6 +76,8 @@ func getDecimalValue(head *ListNode) int {
 	i := 0
 	j := len(binary) - 1
 	for i < len(binary) && j >= 0 {
+		//二进制转10进制,比如110
+		// 1*2^2 + 1*2*1 + 0*2^1
 		sum += binary[i] * int(math.Pow(2, float64(j)))
 		i++
 		j--
