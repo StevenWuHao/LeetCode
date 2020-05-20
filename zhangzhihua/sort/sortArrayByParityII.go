@@ -56,3 +56,25 @@ func isEvenNumbers(number int) bool {
 	}
 	return false
 }
+
+//开辟另一个数组空间，将A中未偶数先放进去
+func sortArrayByParityIIX(A []int) []int {
+	result := make([]int, len(A))
+	j := 0
+	for _, v := range A {
+		if isEvenNumbers(v) {
+			result[j] = v
+			j += 2
+		}
+
+	}
+
+	j = 1
+	for _, v := range A {
+		if !isEvenNumbers(v) {
+			result[j] = v
+			j += 2
+		}
+	}
+	return result
+}
