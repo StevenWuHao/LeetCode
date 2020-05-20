@@ -41,11 +41,7 @@ func sortArrayByParityII(A []int) []int {
 			continue
 		}
 		for j := i + 1; j < len(A); j++ {
-			if isEventI && isEvenNumbers(A[j]) { //索引偶数
-				A[i], A[j] = A[j], A[i]
-				break
-			}
-			if !isEventI && !isEvenNumbers(A[j]) { //索引奇数
+			if isEventI && isEvenNumbers(A[j]) || !isEventI && !isEvenNumbers(A[j]) { //索引偶数
 				A[i], A[j] = A[j], A[i]
 				break
 			}
