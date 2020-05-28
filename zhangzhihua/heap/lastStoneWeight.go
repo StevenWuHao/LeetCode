@@ -61,11 +61,11 @@ func heapify(idx, length int, nums []int) {
 	left := 2*idx + 1
 	right := 2*idx + 2
 	largest := idx
-	if left < length && nums[left] < nums[idx] {
+	if left < length && nums[left] > nums[idx] {
 		largest = left
 	}
 
-	if right < length && nums[right] < nums[largest] {
+	if right < length && nums[right] > nums[largest] {
 		largest = right
 	}
 
