@@ -1,4 +1,4 @@
-package main
+package lock
 
 import (
 	"fmt"
@@ -14,20 +14,20 @@ import (
 */
 
 func main() {
+
 	var rw sync.RWMutex
 
-	fmt.Println("准备获取写锁")
+	fmt.Println("准备获取A写锁")
 	rw.Lock()
-	fmt.Println("已经获取到写锁")
-
+	fmt.Println("已经获取到A写锁")
 	//这里要异步释放写锁，不然编译会提醒死锁
 	go func(rw *sync.RWMutex) {
 		time.Sleep(time.Second * 5)
-		fmt.Println("释放写锁")
+		fmt.Println("释放A写锁")
 		rw.Unlock()
 	}(&rw)
+	fmt.Println("准备获取B写锁")
+	rw.Lock()
+	fmt.Println("已经获取到B写锁")
 
-	fmt.Println("准备获取读锁")
-	rw.RLock()
-	fmt.Println("已经获取到读锁")
 }
